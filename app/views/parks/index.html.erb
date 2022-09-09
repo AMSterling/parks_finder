@@ -1,0 +1,13 @@
+<h2>Number of parks: <%= @total_by_state.count %></h2>
+<% @total_by_state.each_with_index do |park, index| %>
+  <div id="park-<%= index %>">
+    <h3><%= park.full_name %></h3>
+    <p><strong>Description: </strong><%= park.description %></p>
+    <p><strong>How to get here: </strong><%= park.direction_info %></p>
+    <ul><strong>Standard Operating Hours: </strong>
+      <% park.standard_hours.map do |days, hours| %>
+        <li><%= days.to_s.capitalize %>s: <%= hours %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
