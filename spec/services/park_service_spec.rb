@@ -12,4 +12,16 @@ RSpec.describe 'Park Service' do
     expect(response[0]).to have_key(:operatingHours)
     expect(response[0][:operatingHours][0]).to have_key(:standardHours)
   end
+
+  it 'Seems to give a normal response for Hawaii' do
+    response = ParkService.total_by_state('HI')
+
+    expect(response).to be_a Array
+    expect(response[0]).to have_key(:id)
+    expect(response[0]).to have_key(:fullName)
+    expect(response[0]).to have_key(:description)
+    expect(response[0]).to have_key(:directionsInfo)
+    expect(response[0]).to have_key(:operatingHours)
+    expect(response[0][:operatingHours][0]).to have_key(:standardHours)
+  end
 end

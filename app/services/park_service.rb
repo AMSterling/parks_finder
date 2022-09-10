@@ -1,6 +1,6 @@
 class ParkService
-  def self.total_by_state(keyword_string)
-    response = conn.get("parks?stateCode=#{keyword_string}&")
+  def self.total_by_state(state_code)
+    response = conn.get("parks?stateCode=#{state_code}&")
     JSON.parse(response.body, symbolize_names: true)[:data]
   end
 
